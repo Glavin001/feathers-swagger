@@ -22,18 +22,18 @@ describe('feathers-swagger', () => {
       messageService.docs = {
         description: 'A service to send and receive messages',
         definition: {
-          'type': 'object',
-          'required': [
+          type: 'object',
+          required: [
             'text'
           ],
-          'properties': {
-            'text': {
-              'type': 'string',
-              'description': 'The message text'
+          properties: {
+            text: {
+              type: 'string',
+              description: 'The message text'
             },
-            'userId': {
-              'type': 'string',
-              'description': 'The id of the user that sent the message'
+            userId: {
+              type: 'string',
+              description: 'The id of the user that sent the message'
             }
           }
         }
@@ -43,6 +43,7 @@ describe('feathers-swagger', () => {
         .configure(express.rest())
         .configure(
           swagger({
+            openApiVersion: 2,
             docsPath: '/docs',
             idType: 'string',
             specs: {
@@ -109,18 +110,18 @@ describe('feathers-swagger', () => {
       messageService.docs = {
         description: 'A service to send and receive messages',
         definition: {
-          'type': 'object',
-          'required': [
+          type: 'object',
+          required: [
             'text'
           ],
-          'properties': {
-            'text': {
-              'type': 'string',
-              'description': 'The message text'
+          properties: {
+            text: {
+              type: 'string',
+              description: 'The message text'
             },
-            'userId': {
-              'type': 'string',
-              'description': 'The id of the user that sent the message'
+            userId: {
+              type: 'string',
+              description: 'The id of the user that sent the message'
             }
           }
         }
@@ -130,7 +131,6 @@ describe('feathers-swagger', () => {
         .configure(express.rest())
         .configure(
           swagger({
-            openApiVersion: 3,
             docsPath: '/docs',
             docsJsonPath: '/docs.json',
             idType: 'string',
@@ -273,18 +273,18 @@ describe('feathers-swagger', () => {
       messageService.docs = {
         description: 'A service to send and receive messages',
         definition: {
-          'type': 'object',
-          'required': [
+          type: 'object',
+          required: [
             'text'
           ],
-          'properties': {
-            'text': {
-              'type': 'string',
-              'description': 'The message text'
+          properties: {
+            text: {
+              type: 'string',
+              description: 'The message text'
             },
-            'userId': {
-              'type': 'string',
-              'description': 'The id of the user that sent the message'
+            userId: {
+              type: 'string',
+              description: 'The id of the user that sent the message'
             }
           }
         }
@@ -301,13 +301,13 @@ describe('feathers-swagger', () => {
       const responseContent = await rp({
         url: 'http://localhost:6776/docs',
         headers: {
-          'Accept': 'text/html'
+          Accept: 'text/html'
         }
       });
 
       const docs = JSON.parse(responseContent);
 
-      expect(docs.swagger).to.equal('2.0');
+      expect(docs.openapi).to.equal('3.0.2');
       expect(docs.info.title).to.equal('A test');
       expect(docs.info.description).to.equal('A description');
       expect(docs.paths['/messages']).to.exist;
@@ -331,7 +331,7 @@ describe('feathers-swagger', () => {
       const responseContent = await rp({
         url: 'http://localhost:6776/docs/',
         headers: {
-          'Accept': 'text/html'
+          Accept: 'text/html'
         },
         followRedirect (response) {
           expect(response.statusCode).to.equal(302);
@@ -356,7 +356,7 @@ describe('feathers-swagger', () => {
       const responseContent = await rp({
         url: 'http://localhost:6776/docs',
         headers: {
-          'Accept': 'text/html'
+          Accept: 'text/html'
         }
       });
 
@@ -376,7 +376,7 @@ describe('feathers-swagger', () => {
       const responseContent = await rp({
         url: 'http://localhost:6776/docs',
         headers: {
-          'Accept': 'text/html'
+          Accept: 'text/html'
         }
       });
 

@@ -23,7 +23,7 @@
     "url": "https://github.com/feathersjs-ecosystem/feathers-swagger/issues"
   },
   "engines": {
-    "node": ">= 6"
+    "node": ">= 8"
   },
   "scripts": {
     "publish": "git push origin --tags && npm run changelog && git push origin",
@@ -33,7 +33,7 @@
     "changelog": "github_changelog_generator -u feathersjs-ecosystem -p feathers-swagger && git add CHANGELOG.md && git commit -am \"Updating changelog\"",
     "lint": "semistandard --fix",
     "dtslint": "dtslint types",
-    "mocha": "mocha --opts mocha.opts",
+    "mocha": "mocha",
     "coverage": "nyc --check-coverage npm run mocha",
     "test": "npm run lint && npm run coverage && npm run dtslint",
     "start": "node example/app"
@@ -54,9 +54,9 @@
     ]
   },
   "dependencies": {
-    "lodash": "^4.17.11",
-    "serve-static": "^1.13.2",
-    "swagger-ui-dist": "^3.22.1"
+    "lodash": "^4.17.15",
+    "serve-static": "^1.14.1",
+    "swagger-ui-dist": "^3.25.0"
   },
   "devDependencies": {
     "@feathersjs/express": "^4.4.1",
@@ -65,13 +65,13 @@
     "@types/express": "^4.16.1",
     "chai": "^4.2.0",
     "cors": "^2.8.5",
-    "dtslint": "^2.0.2",
+    "dtslint": "^3.3.0",
     "feathers-memory": "^4.0.0",
-    "mocha": "^6.1.4",
+    "mocha": "^7.0.1",
     "nyc": "^15.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
-    "semistandard": "^13.0.1",
-    "swagger-parser": "^8.0.0"
+    "semistandard": "^14.2.0",
+    "swagger-parser": "^9.0.0"
   }
 }

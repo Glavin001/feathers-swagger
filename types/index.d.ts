@@ -1,4 +1,4 @@
-// TypeScript Version: 2.8
+// TypeScript Version: 3.0
 
 import { Request, Response } from 'express';
 import { Service } from '@feathersjs/feathers';
@@ -218,4 +218,13 @@ declare namespace feathersSwagger {
   function security(method: string, securities: Securities, security: UnknownObject[]): UnknownObject[];
 
   function idPathParameters(idName: string | string[], idSeparator: string): string;
+}
+
+declare module '@feathersjs/adapter-commons' {
+  interface AdapterService<T = any> {
+    /**
+     * Docs for Swagger specfications generation.
+     */
+    docs: feathersSwagger.ServiceSwaggerOptions;
+  }
 }
